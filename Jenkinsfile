@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('SCM Checkout') {
+        stage('Git Clone and Checkout') {
             steps {
                 echo 'SCM..'
             }
@@ -12,16 +12,6 @@ pipeline {
             }
         }
         stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-        stage('Test1') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy1') {
             steps {
                 echo 'Deploying....'
             }
