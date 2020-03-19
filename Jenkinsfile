@@ -27,8 +27,6 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-    }
-    stages {
         stage('Run Tests') {
             parallel {
                 stage('Test On Windows') {
@@ -49,6 +47,5 @@ pipeline {
                 }
             }
         }
-    }
 }
 
