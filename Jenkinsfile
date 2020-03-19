@@ -1,12 +1,11 @@
 pipeline {
     agent any
-
     stages {
         stage('SCM Checkout') {
             steps {
                 echo 'SCM..'
             }
-    }
+        }
         stage('Test') {
             steps {
                 echo 'Testing..'
@@ -47,5 +46,5 @@ pipeline {
                 }
             }
         }
+    }    
 }
-
