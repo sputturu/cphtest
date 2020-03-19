@@ -2,9 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('SCM Checkout') {
             steps {
-                echo 'Building..'
+                echo 'SCM..'
+            }
+    }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
         stage('Test') {
@@ -15,6 +25,28 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+            }
+        }
+    }
+    stages {
+        stage('Run Tests') {
+            parallel {
+                stage('Test On Windows') {
+                    agent {
+                        label "windows"
+                    }
+                    steps {
+                        echo "linux"
+                    }
+                }
+                stage('Test On Linux') {
+                    agent {
+                        label "linux"
+                    }
+                    steps {
+                        echo "linux"
+                    }
+                }
             }
         }
     }
