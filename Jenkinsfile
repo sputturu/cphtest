@@ -6,9 +6,23 @@ pipeline {
                 echo 'SCM..'
             }
         }
-        stage('Test') {
+        stage('Build & Test') {
             steps {
-                echo 'Testing..'
+                echo 'Building..'
+            }
+        }
+        stage('Run Tests') {
+            parallel {
+                stage('Download Build_Files to Test') {
+                    steps {
+                        echo "Downloading..."
+                    }
+                }
+                stage('Test On Build_Files') {
+                    steps {
+                        echo "Testing.."
+                    }
+                }
             }
         }
         stage('Publish to Artifactory') {
@@ -21,9 +35,37 @@ pipeline {
                 echo 'Deploying..'
             }
         }
+        stage('Run Tests') {
+            parallel {
+                stage('Download Development Code') {
+                    steps {
+                        echo "Downloading.."
+                    }
+                }
+                stage('Test On Development Code') {
+                    steps {
+                        echo "Testing.."
+                    }
+                }
+            }
+        }
         stage('Deploy to QA') {
             steps {
                 echo 'Deploying....'
+            }
+        }
+        stage('Run Tests') {
+            parallel {
+                stage('Download On QA Code') {
+                    steps {
+                        echo "Downloading.."
+                    }
+                }
+                stage('Test On QA Code') {
+                    steps {
+                        echo "Testing.."
+                    }
+                }
             }
         }
         stage('Deploy to Production') {
@@ -33,14 +75,14 @@ pipeline {
         }
         stage('Run Tests') {
             parallel {
-                stage('Test On Windows') {
+                stage('Download Production Code') {
                     steps {
-                        echo "linux"
+                        echo "Downloading.."
                     }
                 }
-                stage('Test On Linux') {
+                stage('Test On Production Code') {
                     steps {
-                        echo "linux"
+                        echo "Testing.."
                     }
                 }
             }
