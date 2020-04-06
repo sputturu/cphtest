@@ -11,17 +11,22 @@ pipeline {
                 echo 'Testing..'
             }
         }
-        stage('Deploy') {
+        stage('Publish to Artifactory') {
+            steps {
+                echo 'Publishing....'
+            }
+        }
+        stage('Deploy to Development') {
+            steps {
+                echo 'Deploying..'
+            }
+        }
+        stage('Deploy to QA') {
             steps {
                 echo 'Deploying....'
             }
         }
-        stage('Test1') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy1') {
+        stage('Deploy to Production') {
             steps {
                 echo 'Deploying....'
             }
@@ -29,17 +34,11 @@ pipeline {
         stage('Run Tests') {
             parallel {
                 stage('Test On Windows') {
-                    agent {
-                        label "windows"
-                    }
                     steps {
                         echo "linux"
                     }
                 }
                 stage('Test On Linux') {
-                    agent {
-                        label "linux"
-                    }
                     steps {
                         echo "linux"
                     }
