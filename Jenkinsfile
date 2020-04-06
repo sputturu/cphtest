@@ -11,7 +11,7 @@ pipeline {
                 echo 'Building..'
             }
         }
-        stage('Run Tests') {
+        stage('Build Tests') {
             parallel {
                 stage('Download Build_Files to Test') {
                     steps {
@@ -35,7 +35,7 @@ pipeline {
                 echo 'Deploying..'
             }
         }
-        stage('Run Tests') {
+        stage('Development Tests') {
             parallel {
                 stage('Download Development Code') {
                     steps {
@@ -54,7 +54,7 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-        stage('Run Tests') {
+        stage('QA Tests') {
             parallel {
                 stage('Download On QA Code') {
                     steps {
@@ -73,7 +73,7 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-        stage('Run Tests') {
+        stage('Production Tests') {
             parallel {
                 stage('Download Production Code') {
                     steps {
