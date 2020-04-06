@@ -13,12 +13,12 @@ pipeline {
         }
         stage('Build Tests') {
             parallel {
-                stage('Download Build_Files to Test') {
+                stage('Test On Build_Files to Test') {
                     steps {
                         echo "Downloading..."
                     }
                 }
-                stage('Test On Build_Files') {
+                stage('Download Build_Files') {
                     steps {
                         echo "Testing.."
                     }
@@ -37,14 +37,14 @@ pipeline {
         }
         stage('Development Tests') {
             parallel {
-                stage('Download Development Code') {
-                    steps {
-                        echo "Downloading.."
-                    }
-                }
                 stage('Test On Development Code') {
                     steps {
                         echo "Testing.."
+                    }
+                }
+                stage('Download Development Code') {
+                    steps {
+                        echo "Downloading.."
                     }
                 }
             }
@@ -56,14 +56,14 @@ pipeline {
         }
         stage('QA Tests') {
             parallel {
-                stage('Download On QA Code') {
-                    steps {
-                        echo "Downloading.."
-                    }
-                }
                 stage('Test On QA Code') {
                     steps {
                         echo "Testing.."
+                    }
+                }
+                stage('Download QA Code') {
+                    steps {
+                        echo "Downloading.."
                     }
                 }
             }
@@ -75,14 +75,14 @@ pipeline {
         }
         stage('Production Tests') {
             parallel {
-                stage('Download Production Code') {
-                    steps {
-                        echo "Downloading.."
-                    }
-                }
                 stage('Test On Production Code') {
                     steps {
                         echo "Testing.."
+                    }
+                }
+                stage('Download Production Code') {
+                    steps {
+                        echo "Downloading.."
                     }
                 }
             }
