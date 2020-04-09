@@ -12,7 +12,7 @@ pipeline {
             steps {
                 rtServer (
                     id: "jenkins-artifactory-server",
-                    url: http://3.135.19.191/artifactory,
+                    url: "http://3.135.19.191/artifactory",
                     credentialsId: articred
                 )
 
@@ -34,7 +34,7 @@ pipeline {
             steps {
                 rtGradleRun (
                     tool: GRADLE_TOOL, // Tool name from Jenkins configuration
-                    rootDir: "src/main/java/",
+                    rootDir: 'src/main/java/',
                     buildFile: 'build.gradle',
                     tasks: 'clean artifactoryPublish',
                     deployerId: "GRADLE_DEPLOYER",
