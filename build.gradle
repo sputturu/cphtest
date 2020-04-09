@@ -10,7 +10,6 @@ buildscript {
 }
 
 allprojects {
-    apply plugin: "com.jfrog.artifactory"
     apply plugin: 'java'
 
     repositories {
