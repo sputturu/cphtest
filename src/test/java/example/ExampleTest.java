@@ -1,6 +1,4 @@
 package example;
-package com.bank;
-
 /**
 * Hello world!
 *
