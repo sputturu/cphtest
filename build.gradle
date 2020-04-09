@@ -10,7 +10,8 @@ buildscript {
 }
 
 allprojects {
-    apply plugin: 'java'
+    apply plugin: "com.jfrog.artifactory"
+        apply plugin: 'java'
 
     repositories {
     jcenter()
@@ -35,12 +36,8 @@ artifactory {
             repoKey = 'libs-release-local'
             username = "${artifactory_user}"
             password = "${artifactory_password}"
-            maven = false
-            ivy {
-                ivyLayout = '[organization]/[module]/ivy-[revision].xml'
-                artifactLayout = '[organization]/[module]/[revision]/[module]-[revision](-[classifier]).[ext]'
-                mavenCompatible = false
-            }
+            maven = true
+            
         }
     }
     resolve {
@@ -48,12 +45,8 @@ artifactory {
             repoKey = 'libs-release'
             username = "${artifactory_user}"
             password = "${artifactory_password}"
-            maven = false
-            ivy {
-                ivyLayout = '[organization]/[module]/ivy-[revision].xml'
-                artifactLayout = '[organization]/[module]/[revision]/[module]-[revision](-[classifier]).[ext]'
-                mavenCompatible = false
-            }
+            maven = true
+            
         }
     }
 }
