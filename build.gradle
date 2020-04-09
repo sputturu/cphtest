@@ -33,8 +33,8 @@ artifactory {
     publish {
         repository {
             repoKey = 'libs-release-local'
-            username = 'user'
-            password = 'cphworkcphwork'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
             maven = true
             ivy {
                 ivyLayout = '[organization]/[module]/ivy-[revision].xml'
@@ -46,8 +46,8 @@ artifactory {
     resolve {
         repository {
             repoKey = 'libs-release'
-            username = 'user'
-            password = 'cphworkcphwork'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
             maven = false
             ivy {
                 ivyLayout = '[organization]/[module]/ivy-[revision].xml'
