@@ -10,24 +10,23 @@ buildscript {
 }
 
 allprojects {
+    apply plugin: "com.jfrog.artifactory"
     apply plugin: 'java'
 
     repositories {
-    jcenter()
+        jcenter()
 }
 
     dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.12'
-    testCompile 'junit:junit:4.12'
+        compile 'org.slf4j:slf4j-api:1.7.12'
+        testCompile 'junit:junit:4.12'
 }
 
     jar {
-    manifest {
-      attributes 'Main-Class': 'com.example.main.Application'
+        manifest {
+            attributes 'Main-Class': 'com.example.main.Application'
    }
 }
-    
-
 }
 
 artifactory {
@@ -38,7 +37,11 @@ artifactory {
             username = "${artifactory_user}"
             password = "${artifactory_password}"
             maven = true
-            
+            ivy {
+                ivyLayout = '[organization]/[module]/ivy-[revision].xml'
+                artifactLayout = '[organization]/[module]/[revision]/[module]-[revision](-[classifier]).[ext]'
+                mavenCompatible = false
+            }
         }
     }
     resolve {
@@ -46,8 +49,12 @@ artifactory {
             repoKey = 'libs-release'
             username = "${artifactory_user}"
             password = "${artifactory_password}"
-            maven = true
-            
+            maven = false
+            ivy {
+                ivyLayout = '[organization]/[module]/ivy-[revision].xml'
+                artifactLayout = '[organization]/[module]/[revision]/[module]-[revision](-[classifier]).[ext]'
+                mavenCompatible = false
+            }
         }
     }
 }
