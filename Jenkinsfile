@@ -33,7 +33,7 @@ pipeline {
         stage ('Exec Gradle') {
             steps {
                 rtGradleRun (
-                    tool: GRADLE_TOOL, // Tool name from Jenkins configuration
+                    tool: "Gradle", // Tool name from Jenkins configuration
                     rootDir: 'src/main/java/',
                     buildFile: 'build.gradle',
                     tasks: 'clean artifactoryPublish',
