@@ -19,7 +19,7 @@ pipeline {
                 rtGradleDeployer (
                     id: "GRADLE_DEPLOYER",
                     serverId: "jenkins-artifactory-server",
-                    repo: "cphwork",
+                    repo: "libs-release-local",
                 )
 
                 rtGradleResolver (
