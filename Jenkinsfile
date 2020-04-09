@@ -13,7 +13,7 @@ pipeline {
                 rtServer (
                     id: "jenkins-artifactory-server",
                     url: "http://3.135.19.191/artifactory",
-                    credentialsId: articred
+                    credentialsId: "articred"
                 )
 
                 rtGradleDeployer (
