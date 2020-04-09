@@ -1,11 +1,14 @@
 package example;
 
-import com.google.common.base.Joiner;
+package com.bank;
 
-public class Example {
+/**
+* Hello world!
+*
+*/
 
-    public static String join(String... args) {
-        return Joiner.on(' ').join(args);
-    }
-
+public class App {
+   public static void main( String[] args ){
+      System.out.println( "Hello World!" );
+   }
 }
