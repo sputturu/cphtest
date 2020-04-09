@@ -11,7 +11,7 @@ buildscript {
 }
 
 allprojects {
-    apply plugin: "java"
+    apply plugin: 'java'
 }
 
 artifactory {
