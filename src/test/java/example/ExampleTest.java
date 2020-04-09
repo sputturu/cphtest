@@ -1,14 +1,13 @@
 package example;
+package com.bank;
 
-import org.junit.Test;
+/**
+* Hello world!
+*
+*/
 
-import static org.junit.Assert.assertEquals;
-
-public class ExampleTest {
-
-    @Test
-    public void testJoin() {
-        assertEquals("Joined string didn't match", "1 2 3", Example.join("1", "2", "3"));
-    }
-
+public class App{
+   public static void main( String[] args ){
+      System.out.println( "Hello World!" );
+   }
 }
