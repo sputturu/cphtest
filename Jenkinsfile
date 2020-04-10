@@ -19,13 +19,13 @@ pipeline {
                 rtGradleDeployer (
                     id: "GRADLE_DEPLOYER",
                     serverId: "jenkins-artifactory-server",
-                    repo: "libs-release",
+                    repo: "libs-release-local",
                 )
 
                 rtGradleResolver (
                     id: "GRADLE_RESOLVER",
                     serverId: "jenkins-artifactory-server",
-                    repo: "libs-release-local"
+                    repo: "libs-release"
                 )
             }
         }
@@ -33,7 +33,7 @@ pipeline {
         stage ('Exec Gradle') {
             steps {
                 rtGradleRun (
-                    tool: Gradle, // Tool name from Jenkins configuration
+                    tool: "Gradle", // Tool name from Jenkins configuration
                     buildFile: 'build.gradle',
                     tasks: 'clean artifactoryPublish',
                     deployerId: "GRADLE_DEPLOYER",
