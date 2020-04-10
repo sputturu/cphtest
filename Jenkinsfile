@@ -37,12 +37,12 @@ pipeline {
         }
         stage('Development Tests') {
             parallel {
-                stage('Test On Development Code') {
+                stage('CH_CPH_AccessManagement_CD') {
                     steps {
                         echo "Testing.."
                     }
                 }
-                stage('Download Development Code') {
+                stage('CH_CPH_UserProfile_CD') {
                     steps {
                         echo "Downloading.."
                     }
@@ -56,12 +56,12 @@ pipeline {
         }
         stage('QA Tests') {
             parallel {
-                stage('Test On QA Code') {
+                stage('CH_CPH_AccessManagement_CD') {
                     steps {
                         echo "Testing.."
                     }
                 }
-                stage('Download QA Code') {
+                stage('CH_CPH_UserProfile_CD') {
                     steps {
                         echo "Downloading.."
                     }
@@ -75,12 +75,12 @@ pipeline {
         }
         stage('Production Tests') {
             parallel {
-                stage('Test On Production Code') {
+                stage('CH_CPH_AccessManagement_CD') {
                     steps {
                         echo "Testing.."
                     }
                 }
-                stage('Download Production Code') {
+                stage('CH_CPH_UserProfile_CD') {
                     steps {
                         echo "Downloading.."
                     }
