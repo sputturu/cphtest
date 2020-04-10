@@ -18,7 +18,7 @@ node {
     }
 
     stage('Gradle build') {
-        buildInfo = rtGradle.run rootDir: "/tree/master/gradle", buildFile: 'build.gradle', tasks: 'clean artifactoryPublish'
+        buildInfo = rtGradle.run rootDir: "https://github.com/sputturu/cphtest/tree/master/gradle/", buildFile: 'build.gradle', tasks: 'clean artifactoryPublish'
     }
 
     stage('Publish build info') {
